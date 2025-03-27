@@ -34,7 +34,7 @@ def create_database_page(database_id, properties):
 # 파일에서 공고 데이터 불러와서 Notion에 저장
 def insert_jobs_to_notion():
     today = datetime.now().strftime("%Y-%m-%d")
-    folder = f"data/{datetime.now().strftime('%Y-%m')}"
+    folder = f"../../data/{datetime.now().strftime('%Y-%m')}"
     filepath = f"{folder}/{today}_job_data.json"
 
     with open(filepath, 'r', encoding='utf-8') as f:
