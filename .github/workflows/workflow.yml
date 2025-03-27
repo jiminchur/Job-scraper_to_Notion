@@ -1,0 +1,33 @@
+# .github/workflows/workflow.yml
+name: Daily Job Scraper for DataEngineer
+
+on:
+  schedule:
+    - cron: '0 22 * * *' # 22시 배치 작업 설정
+  workflow_dispatch:
+
+jobs:
+  scrape_and_insert_jobs:
+    runs-on: ubuntu-latest
+    env:
+      NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}
+      NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
+      NOTION_PAGE_ID: ${{ secrets.NOTION_PAGE_ID }}
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+
+    - name: Install dependencies
+      run: |
+        pip install -r requirement/requirements.txt
+
+    - name: Run job scraper
+      run: |
+        python3 scripts/saramin.py
+        python3 scripts/Insert2Notion.py
