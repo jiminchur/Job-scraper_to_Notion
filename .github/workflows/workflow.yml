@@ -29,5 +29,5 @@ jobs:
 
     - name: Run job scraper
       run: |
-        python3 scripts/saramin.py
-        python3 scripts/Insert2Notion.py
+        python3 scripts/saramin/saramin.py
+        python3 scripts/notion/insert2notion.py
