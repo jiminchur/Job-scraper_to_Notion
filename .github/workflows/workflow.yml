@@ -3,7 +3,7 @@ name: Daily Job Scraper for DataEngineer
 
 on:
   schedule:
-    - cron: '0 22 * * *' # 22시 배치 작업 설정
+    - cron: '0 13 * * *' # 22시 배치 작업 설정
   workflow_dispatch:
 
 jobs:

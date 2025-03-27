@@ -17,7 +17,7 @@ def get_driver():
 # 공고 수집 및 저장 로직
 def fetch_and_save_jobs():
     """
-    
+
     """
     driver = get_driver()
     url = "https://www.saramin.co.kr/zf_user/jobs/list/job-category?cat_kewd=83&exp_cd=1%2C2&exp_max=2"
@@ -32,7 +32,7 @@ def fetch_and_save_jobs():
         if job_info["등록일"] == today:
             today_jobs.append(job_info)
 
-    folder = f"data/{datetime.now().strftime('%Y-%m')}"
+    folder = f"../../data/{datetime.now().strftime('%Y-%m')}"
     os.makedirs(folder, exist_ok=True)
 
     filepath = f"{folder}/{today}_job_data.json"
